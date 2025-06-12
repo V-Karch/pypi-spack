@@ -4,7 +4,7 @@ from Model.package_tools import PackageTools
 
 def main() -> None:
     tar_tools = TarTools(
-        "https://files.pythonhosted.org/packages/bb/50/e0f9f8a6de373f6431928bcb4b1499d34708994326b85cea4f791da4f39b/rgbprint-4.0.2.tar.gz"
+        "https://files.pythonhosted.org/packages/38/10/a7f63e086c1e1c12e290c98363c748ef5ddd6313fde739d2aeccd5ed0cd4/deepspeed-0.17.1.tar.gz"
     )
     package_tools = PackageTools(tar_tools.tar_title)
 
