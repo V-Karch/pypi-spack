@@ -14,7 +14,8 @@ def main() -> None:
     found_packaging_files = package_tools.find_packaging_files()
 
     for packaging_file in found_packaging_files:
-        package_tools.parse_packaging_file(packaging_file)
+        print(f"\n{packaging_file}\n")
+        print(package_tools.parse_packaging_file(packaging_file))
 
     tar_tools.cleanup_tar()
 

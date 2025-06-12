@@ -31,21 +31,21 @@ class PackageTools:
 
         return found_packaging_files
 
-    def parse_packaging_file(self, filename: str):
+    def parse_packaging_file(self, filename: str) -> list[str]:
         filename = filename.lower()
 
         if filename == "pkg-info":
-            self.parse_pkg_info(filename)
+            return self.parse_pkg_info(filename)
         elif filename == "setup.py":
-            self.parse_setup_py(filename)
+            return self.parse_setup_py(filename)
         elif filename == "pyproject.toml":
-            self.parse_pyproject_toml(filename)
+            return self.parse_pyproject_toml(filename)
         elif filename == "requirements.txt":
-            self.parse_requirements_txt(filename)
+            return self.parse_requirements_txt(filename)
         elif filename == "setup.cfg":
-            self.parse_setup_cfg(filename)
+            return self.parse_setup_cfg(filename)
         elif "requirements" in filename:
-            self.parse_requirements_other(filename)
+            return self.parse_requirements_other(filename)
         else:
             raise ValueError(
                 f"{filename} is an invalid option for PackageTools.parse_packaging_file(self, filename: str)"
@@ -53,15 +53,19 @@ class PackageTools:
 
     def parse_pkg_info(self, filename: str):
         print(f"\nParsing {filename}...\n")
+        return []
 
     def parse_setup_py(self, filename: str):
         print(f"\nParsing {filename}...\n")
+        return []
 
     def parse_pyproject_toml(self, filename: str):
         print(f"\nParsing {filename}...\n")
+        return []
 
     def parse_setup_cfg(self, filename: str):
         print(f"\nParsing {filename}...\n")
+        return []
 
     def parse_requirements_txt(self, filename: str):
         print(f"\nParsing {filename}...\n")
@@ -69,8 +73,8 @@ class PackageTools:
         requirement_parser = RequirementParser(
             self.tar_title.replace(".tar.gz", "") + "/" + filename
         )
-        for line in requirement_parser.parse():
-            print(line)
+
+        return requirement_parser.parse()
 
     def parse_requirements_other(self, filename: str):
         print(f"\nParsing {filename}...\n")
@@ -78,5 +82,5 @@ class PackageTools:
         requirement_parser = RequirementParser(
             self.tar_title.replace(".tar.gz", "") + "/" + filename
         )
-        for line in requirement_parser.parse():
-            print(line)
+
+        return requirement_parser.parse()
