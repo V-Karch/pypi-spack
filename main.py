@@ -8,6 +8,7 @@ def main() -> None:
 
     print(tar_tools.download_tar())
     print(tar_tools.untar_tar())
+    print(tar_tools.get_tar_checksum())
     print(tar_tools.cleanup_tar())
 
 

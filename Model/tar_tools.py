@@ -1,5 +1,6 @@
 import os
 import shutil
+import hashlib
 import tarfile
 import requests
 
@@ -36,3 +37,14 @@ class TarTools:
             return True
         except Exception:
             return False
+
+    def get_tar_checksum(self) -> str:
+        if not self.tar_title in os.listdir():
+            raise FileNotFoundError(
+                f"./{self.tar_title} could not be found, please first download it using TarTools().download_tar()"
+            )
+
+        with open(self.tar_title, "rb") as f:
+            data = f.read()
+
+        return hashlib.sha256(data).hexdigest()
