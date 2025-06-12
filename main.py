@@ -10,7 +10,11 @@ def main() -> None:
 
     print(tar_tools.download_tar())
     print(tar_tools.untar_tar())
-    print("\n".join(package_tools.find_packaging_files()))
+
+    found_packaging_files = package_tools.find_packaging_files()
+
+    for packaging_file in found_packaging_files:
+        package_tools.parse_packaging_file(packaging_file)
 
     print(tar_tools.cleanup_tar())
 
