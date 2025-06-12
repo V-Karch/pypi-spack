@@ -8,15 +8,15 @@ def main() -> None:
     )
     package_tools = PackageTools(tar_tools.tar_title)
 
-    print(tar_tools.download_tar())
-    print(tar_tools.untar_tar())
+    tar_tools.download_tar()
+    tar_tools.untar_tar()
 
     found_packaging_files = package_tools.find_packaging_files()
 
     for packaging_file in found_packaging_files:
         package_tools.parse_packaging_file(packaging_file)
 
-    print(tar_tools.cleanup_tar())
+    tar_tools.cleanup_tar()
 
 
 if __name__ == "__main__":
