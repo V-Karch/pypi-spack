@@ -1,4 +1,5 @@
 import os
+from Model.requirements_parser import RequirementParser
 
 
 class PackageTools:
@@ -51,19 +52,31 @@ class PackageTools:
             )
 
     def parse_pkg_info(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
 
     def parse_setup_py(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
 
     def parse_pyproject_toml(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
 
     def parse_setup_cfg(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
 
     def parse_requirements_txt(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
+
+        requirement_parser = RequirementParser(
+            self.tar_title.replace(".tar.gz", "") + "/" + filename
+        )
+        for line in requirement_parser.parse():
+            print(line)
 
     def parse_requirements_other(self, filename: str):
-        print(f"Parsing {filename}...")
+        print(f"\nParsing {filename}...\n")
+
+        requirement_parser = RequirementParser(
+            self.tar_title.replace(".tar.gz", "") + "/" + filename
+        )
+        for line in requirement_parser.parse():
+            print(line)
