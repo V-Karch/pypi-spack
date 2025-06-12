@@ -26,7 +26,7 @@ class PackageTools:
             for file in os.listdir(
                 f"{self.tar_title.replace('.tar.gz', '')}/requirements"
             ):
-                found_packaging_files.append(file)
+                found_packaging_files.append("requirements/" + file)
 
         return found_packaging_files
 
